@@ -7,15 +7,92 @@
 :root {
     --background-color: #dee3e4;
     --color: #190202;
+
+    --header-background-color: #6a0a27;
 }
 
 /* GERAL */
 
 body {
     background-color: var(--background-color);
+
     color: var(--color);
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--header-background-color);
+
+    color: var(--background-color);
+    
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    font-size: 18px;
+    padding: 15.25px;
+}
+
+.link {
+    text-decoration: inherit;
+    color: #97123a;
+
+    transition: text-decoration 0.4s ease-in-out;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+main {
+    flex-grow: 1;
+}
+
+#quote-text {
+    text-align: center;
+
+    font-size: 20px;
+}
+
+#quote-author {
+    text-align: right;
+
+    font-size: 18px;
 }
 
 .container {
-    
+    background-color: #aaaeaf;
+    max-width: 600px;
+
+    margin: 5% auto;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+#new-quote-button {
+    background-color: var(--header-background-color);
+
+    height: 40px;
+    width: 100%;
+
+    color: var(--background-color);
+    font-size: 20px;
+    text-align: center;
+
+    margin-top: 15px;
+    border-radius: 10px;
+    border: none;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-in-out;
+}
+
+#new-quote-button:hover {
+    background-color: #97123a;
 }
