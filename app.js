@@ -2,6 +2,12 @@ const quoteText = document.querySelector('.citacao');
 const quoteAuthor = document.querySelector('.autor');
 const newQuote = document.querySelector('#new-quote-button');
 
+let delay = chance.natural({min: 1000, max: 2000});
+
+function fetchRandomQuote(){
+    return new Promise;
+}
+
 newQuote.addEventListener('click', async () =>{
     try {
         Toastify({
@@ -21,8 +27,8 @@ newQuote.addEventListener('click', async () =>{
         //onClick: function(){} // Callback after click
         }).showToast();
 
-        const promise = await function fetchRandomQuote(){
-            return new Promise(() => {
+        await fetchRandomQuote();
+        Promise(() => {
                 setTimeout(() => {
                     let n = chance.natural({min: 0, max:9});
                     quoteText.textContent = citacoes[n];
@@ -36,9 +42,8 @@ newQuote.addEventListener('click', async () =>{
                         opacity: 100,
                         duration: 2,
                     });
-                }, 1500);
+                }, delay);
             });
-        }
     } catch (error) {
         console.log("ERRO:", error);
     }
