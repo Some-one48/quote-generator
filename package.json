@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Some-one48/quote-generator#readme",
   "dependencies": {
+    "fs": "^0.0.1-security",
     "random": "^5.4.1"
   }
 }
