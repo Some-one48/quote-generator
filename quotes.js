@@ -41,12 +41,11 @@ const citacoes = [
     }
 ];
 
-function getText(c) {
-    return citacoes[c].text;
+let newCitacoes = [];
+for (let i = 0; i < 10; i++) {
+    let write = JSON.stringify(citacoes[i]);
+    newCitacoes.push(write);
+    fs.writeFileSync('quotes.json', write);
 }
 
-function getAuthor(c) {
-    return citacoes[c].author;
-}
-
-export default getAuthor; getText;
+//fs.writeFileSync('quotes.json', newCitacoes);
