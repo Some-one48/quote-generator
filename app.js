@@ -1,6 +1,7 @@
-const quotes = require('./quotes.js');
 const fs = require('fs').promises;
 const random = require('random');
+
+let lb = 0;
 
 function getNumber(lastNumber){
     let newNumber = random.int((min = 0), (max = 9));
@@ -12,42 +13,16 @@ function getNumber(lastNumber){
 }
 
     function fetchRandomQuote(){
-        return new Promise(() => {
-            setTimeout(() => {
-                let n = getNumber(0);
-                quoteText.textContent = quotes.getText(citacoes, n);
-                quoteAuthor.textContent = quotes.getAuthor(autores, n);
-
-                gsap.fromTo(".quote-container", {
-                    x: -40,
-                    opacity: 0,
-                }, {
-                    x: 0,
-                    opacity: 100,
-                    duration: 2,
-                });
-            }, 1500);
-        });
+        return new Promise
     }
-
-const citacoes = quotes.getJustQuote();
-const autores = quotes.getJustAuthor();
 
 const quoteText = document.querySelector('.citacao');
 const quoteAuthor = document.querySelector('.autor');
 const newQuote = document.querySelector('#new-quote-button');
 
-async function callback(){
+newQuote.addEventListener('click', async () =>{
     try {
-        const promise = await fetchRandomQuote();
-    } catch (error) {
-        console.log("ERRO:", error);
-    }
-}
-
-
-newQuote.addEventListener('click', () =>{
-    Toastify({
+        Toastify({
         text: "Buscando uma nova citação... ",
         duration: 2000,
         //destination: "https://github.com/apvarun/toastify-js",
@@ -62,7 +37,27 @@ newQuote.addEventListener('click', () =>{
             //"linear-gradient(to right, #97123a, #aaaeaf, #97123a)",
         },
         //onClick: function(){} // Callback after click
-    }).showToast();
+        }).showToast();
 
-    callback();
+        const promise = await fetchRandomQuote();
+        promise(() => {
+            setTimeout(() => {
+                let n = getNumber(ln);
+                ln = n;
+                quoteText.textContent = citacoes[n];
+                quoteAuthor.textContent = citacoes[n];
+
+                gsap.fromTo(".quote-container", {
+                    x: -40,
+                    opacity: 0,
+                }, {
+                    x: 0,
+                    opacity: 100,
+                    duration: 2,
+                });
+            }, 1500);
+        });
+    } catch (error) {
+        console.log("ERRO:", error);
+    }
 });
