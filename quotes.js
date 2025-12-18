@@ -44,14 +44,6 @@ function getQuotesComplex() {
     return citacoes;
 }
 
-function getTextComplex(quote, number) {
-    return quote[number].text;
-}
-
-function getAuthorComplex(quote, number) {
-    return quote[number].author;
-}
-
 function getJustQuote(){
     const citacoes = [
         "Não é sobre você começa, mas sobre como você termina",
@@ -86,14 +78,17 @@ function getJustAuthor() {
     return author;
 }
 
-function getAuthorComplex(quote, number) {
-    return quote[number].author;
+function getText(quote, number) {
+    return quote[number];
+}
+
+function getAuthor(author, number) {
+    return author[number];
 }
 
 module.exports = {
-    getQuotesComplex,
-    getTextComplex, 
-    getAuthorComplex,
     getJustQuote,
-    getJustAuthor
+    getJustAuthor,
+    getText,
+    getAuthor
 };

@@ -68,6 +68,7 @@ main {
 .container {
     background-color: #aaaeaf;
     max-width: 600px;
+    /*min-height: 69vh;*/
 
     margin: 5% auto;
     padding: 15px;
