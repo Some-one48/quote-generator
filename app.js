@@ -5,7 +5,22 @@ const newQuote = document.querySelector('#new-quote-button');
 let delay = chance.natural({min: 1000, max: 2000});
 
 function fetchRandomQuote(){
-    return new Promise;
+    return new Promise(() => {
+                setTimeout(() => {
+                    let n = chance.natural({min: 0, max:9});
+                    quoteText.textContent = citacoes[n];
+                    quoteAuthor.textContent = authores[n];
+
+                    gsap.fromTo(".quote-container", {
+                        x: -40,
+                        opacity: 0,
+                    }, {
+                        x: 0,
+                        opacity: 100,
+                        duration: 1,
+                    });
+                }, delay);
+            });;
 }
 
 newQuote.addEventListener('click', async () =>{
@@ -28,22 +43,6 @@ newQuote.addEventListener('click', async () =>{
         }).showToast();
 
         await fetchRandomQuote();
-        Promise(() => {
-                setTimeout(() => {
-                    let n = chance.natural({min: 0, max:9});
-                    quoteText.textContent = citacoes[n];
-                    quoteAuthor.textContent = authores[n];
-
-                    gsap.fromTo(".quote-container", {
-                        x: -40,
-                        opacity: 0,
-                    }, {
-                        x: 0,
-                        opacity: 100,
-                        duration: 2,
-                    });
-                }, delay);
-            });
     } catch (error) {
         console.log("ERRO:", error);
     }
