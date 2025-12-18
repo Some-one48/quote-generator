@@ -1,4 +1,4 @@
-const author = [
+const authores = [
         "Michael Phelps",
         "Martin Luther King Jr.",
         "George Bernard Shaw",

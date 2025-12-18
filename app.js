@@ -1,21 +1,3 @@
-const fs = require('fs').promises;
-const random = require('random');
-
-let lb = 0;
-
-function getNumber(lastNumber){
-    let newNumber = random.int((min = 0), (max = 9));
-    if (newNumber == lastNumber) {
-        return getNumber(lastNumber);
-    }else {
-        return newNumber;
-    }
-}
-
-    function fetchRandomQuote(){
-        return new Promise
-    }
-
 const quoteText = document.querySelector('.citacao');
 const quoteAuthor = document.querySelector('.autor');
 const newQuote = document.querySelector('#new-quote-button');
@@ -39,24 +21,24 @@ newQuote.addEventListener('click', async () =>{
         //onClick: function(){} // Callback after click
         }).showToast();
 
-        const promise = await fetchRandomQuote();
-        promise(() => {
-            setTimeout(() => {
-                let n = getNumber(ln);
-                ln = n;
-                quoteText.textContent = citacoes[n];
-                quoteAuthor.textContent = citacoes[n];
+        const promise = await function fetchRandomQuote(){
+            return new Promise(() => {
+                setTimeout(() => {
+                    let n = chance.natural({min: 0, max:9});
+                    quoteText.textContent = citacoes[n];
+                    quoteAuthor.textContent = authores[n];
 
-                gsap.fromTo(".quote-container", {
-                    x: -40,
-                    opacity: 0,
-                }, {
-                    x: 0,
-                    opacity: 100,
-                    duration: 2,
-                });
-            }, 1500);
-        });
+                    gsap.fromTo(".quote-container", {
+                        x: -40,
+                        opacity: 0,
+                    }, {
+                        x: 0,
+                        opacity: 100,
+                        duration: 2,
+                    });
+                }, 1500);
+            });
+        }
     } catch (error) {
         console.log("ERRO:", error);
     }
