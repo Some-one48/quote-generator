@@ -9,4 +9,17 @@ const citacoes = [
         "O homem está condenado a ser livre; porque uma vez jogado ao mundo, ele é responsável por tudo que faz",
         "O coração tem razões que a própria razão desconhece",
         "Uma boa ideia é algo que não resolve apenas um único problema, mas sim pode resolver vários problemas de uma só vez",
-    ];
+];
+
+const authores = [
+        "Michael Phelps",
+        "Martin Luther King Jr.",
+        "George Bernard Shaw",
+        "Zilda Arns",
+        "John F. Kennedy",
+        "Albert Eistein",
+        "Aristóteles",
+        "Jean-Paul Sartre",
+        "Blaise Pascal",
+        "Shigeru Miyamoto"
+];
