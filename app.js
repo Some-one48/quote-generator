@@ -21,7 +21,7 @@ function fetchRandomQuote(){
     let delay = chance.natural({min: 1000, max: 2000});
 
     return new Promise((resolve) => {
-        resolve(setTimeout(resolver(), delay));
+        resolve(setTimeout(() => {resolver()}, delay));
     });
 }
 
