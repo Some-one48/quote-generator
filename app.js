@@ -4,9 +4,8 @@ const newQuote = document.querySelector('#new-quote-button');
 
 let delay = chance.natural({min: 1000, max: 2000});
 
-function fetchRandomQuote(){
-    return new Promise(() => {
-                setTimeout(() => {
+function espera(){
+    setTimeout(() => {
                     let n = chance.natural({min: 0, max:9});
                     quoteText.textContent = citacoes[n];
                     quoteAuthor.textContent = authores[n];
@@ -20,7 +19,10 @@ function fetchRandomQuote(){
                         duration: 1,
                     });
                 }, delay);
-            });;
+}
+
+function fetchRandomQuote(){
+    return new Promise(espera());
 }
 
 newQuote.addEventListener('click', async () =>{
