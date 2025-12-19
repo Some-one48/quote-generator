@@ -30,7 +30,7 @@ newQuote.addEventListener('click', async () =>{
             },
         }).showToast();
 
-        const quote = await randomQuote(delay, n);
+        const quote = await randomQuote();
         //const author = await randomAuthor(delay, n);
 
         quoteText.textContent = quote;
