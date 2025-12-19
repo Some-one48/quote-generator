@@ -5,7 +5,12 @@ const newQuote = document.querySelector('#new-quote-button');
 let delay = chance.natural({min: 1000, max: 2000});
 
 function espera(){
-    setTimeout(() => {
+    
+}
+
+function fetchRandomQuote(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
                     let n = chance.natural({min: 0, max:9});
                     quoteText.textContent = citacoes[n];
                     quoteAuthor.textContent = authores[n];
@@ -19,10 +24,7 @@ function espera(){
                         duration: 1,
                     });
                 }, delay);
-}
-
-function fetchRandomQuote(){
-    return new Promise(espera());
+    });
 }
 
 newQuote.addEventListener('click', async () =>{
@@ -44,7 +46,8 @@ newQuote.addEventListener('click', async () =>{
         //onClick: function(){} // Callback after click
         }).showToast();
 
-        await fetchRandomQuote();
+        new Promise
+        .then(fetchRandomQuote())
     } catch (error) {
         console.log("ERRO:", error);
     }
